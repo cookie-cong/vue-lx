@@ -1,8 +1,12 @@
 <template>
   <div id="app">
  <!-- 父组件 -->
-    <input type="text" v-model="name">
-    <one :name="name"></one>
+    <!-- <input type="text" v-model="name"> -->
+    
+    <span>{{name}}</span>
+    <br>
+    <br>
+    <one @child="child"></one>
   </div>
 </template>
 
@@ -16,6 +20,11 @@ export default {
   data(){
     return{
       name:""
+    }
+  },
+  methods:{
+    child(valueNmae){
+      this.name=valueNmae
     }
   }
 }
