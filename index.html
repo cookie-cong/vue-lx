@@ -1,12 +1,56 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>vue_pro</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div id="app">
+            <p @click="text">{{msg}}</p>
+        </div>
+        <div id="box">
+            <p @click="text">哈哈</p>
+        </div>
+    </body>
 </html>
+<script src="https://cdn.bootcss.com/vue/2.5.18-beta.0/vue.js"></script>
+<script>
+  //这个是关于mixins混合的，创建一个公共的方法或函数，这样每一个实例调用的时候，就不需要每一次都写一个同样的方法，
+  //
+    var obj = {
+        methods:{
+            text(){
+                console.log("嘻嘻")
+            }
+        }
+    }
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"hello"
+        },
+        mixins:[obj]
+        // methods:{
+        //     fun(){
+        //         console.log("fun")
+        //     }
+        // }
+        
+    })
+    new Vue({
+        el:"#box",
+        mixins:[obj]
+        // methods:{
+        //     fun(){
+        //         console.log("哈哈")
+        //     }
+        // }
+    })
+</script>
