@@ -6,7 +6,29 @@
     <title>vue_pro</title>
   </head>
   <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <div id="app">
+      <com><span slot="left">你好</span><span slot="right">大家好才是真的好</span></com>
+    </div>
+    
   </body>
 </html>
+<script src="https://cdn.bootcss.com/vue/2.5.18-beta.0/vue.js"></script>
+<script>
+//插槽slot 
+//父组件中引用子组件的同时，可以对组件的一些内容进行修改或者补充
+//slot可以给其命名 name 这里给命名dom元素的组件中也需要命名
+var com = {
+  template:`<div style='text-align:center'><slot name='left'></slot>aaaa<slot name='right'></slot></div>`
+}
+new Vue({
+  el:"#app",
+  components:{
+    com
+  }
+})
+
+
+
+
+
+</script>
