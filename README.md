@@ -1,3 +1,6 @@
+
+
+src和index.html里有相关内容
 # vue_pro
 
 > A Vue.js project
