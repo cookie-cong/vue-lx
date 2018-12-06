@@ -6,7 +6,38 @@
     <title>vue_pro</title>
   </head>
   <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <div id="app">
+      <button @click="btn">父组件调用子组件的方法</button>
+      <com ref="connect"></com>
+    </div>
+      
   </body>
 </html>
+<script src="https://cdn.bootcss.com/vue/2.5.18-beta.0/vue.js"></script>
+<script>
+  var com = {
+    template:`<div>哈哈哈哈</div>`,
+    methods:{
+      
+      fun(){
+        this.$parent.one();//子组件调用父组件的方法
+        alert("哈哈")
+      }
+    }
+  }
+  new Vue({
+    el:"#app",
+    components:{
+      com
+    },
+    methods:{
+      one(){
+        console.log("嘻嘻")
+      },
+      btn(){
+        this.$refs.connect.fun();//父组件调用子组件的方法
+      }
+    }
+
+  })
+</script>
